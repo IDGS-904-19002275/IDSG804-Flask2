@@ -1,0 +1,31 @@
+{%block content%}
+
+<div>
+    <form action="/cajas_dinamica" method="post">
+        <div class="control-group">
+            <label for="numero" class="control-label">Numeros de cajas: </label>
+            <div class="controls">
+            <input type="number" name="numero" value={{ns}} onchange="n()" id="num0">
+            </div>
+        </br>
+            <input type="submit" value="Cajas">
+        </div>
+    </form>
+    <hr>
+
+    {%from "_macros.html" import render_cajas%}
+    <form action="/calcular" method="post">
+        {%if active%}
+            {%for n in range(ns)%}
+                {{render_cajas(n)}}
+            {%endfor%}
+            <div class="custom-control">
+            </br>
+                <input type="submit" value="Continuar">
+            </div>
+        {%else%}
+            <h3>aAqui se pone resultados</h3>
+        {%endif%}
+    </form>
+</div>
+{%endblock%}

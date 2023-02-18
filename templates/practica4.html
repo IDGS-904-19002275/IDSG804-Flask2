@@ -1,0 +1,105 @@
+
+
+<form id="respuesta" action="/zodiaco/" method="post">
+
+    <div id="uno">
+        <h1>Datos</h1>
+        <div>
+            <h3 class="wi d-inline-block">Nombre:</h3><input type="text" id="nom" name="nom" placeholder="Nombre"/></br>
+            <h3 class="wi d-inline-block">Apellido Paterno:</h3><input type="text" id="apa" name="apa" placeholder="Apellido paterno"/></br>
+            <h3 class="wi d-inline-block">Apellido Materno:</h3><input type="text" id="ama" name="ama" placeholder="Apellido materno"/></br>
+        </div>
+
+        <h2>Fecha de nacimiento</h2>
+
+        <div>
+          
+         <label>Dia: <input class="small" type="number" id="dia" name="dia" placeholder="Dia" min="1"  max="31"/></label>   
+         <label>Mes:  <input class="small" type="number" id="mes" name="mes" placeholder="Mes" min="01" max="12" /><label
+         <label>Año: <input class="small" type="number" id="anio" name="anio" placeholder="Año" min="1900" /></label>
+        </div>
+
+        <div>
+            <label for="" class="w d-inline-block">Sexo</label><br>
+            <input class="m-2" type='radio' name='sex' value='M' required checked>Masculino
+            <input class="m-2" type='radio' name='sex' value='F'>Femenino
+            <br>
+        </div>
+
+    </div>
+
+ 
+
+    <div id="dos" style="display: none;">
+        <h5>¿Cuántos litros de sangre tiene una persona adulta?</h5>
+        <input class="m-2" type='radio' name='pregunta1' value='1' required>1-) Entre 2 y 5
+        <input class="m-2" type='radio' name='pregunta1' value='2'>2-) Entre 4 y 6
+        <input class="m-2" type='radio' name='pregunta1' value='2'>3-) Tiene 10 litros
+        <input class="m-2" type='radio' name='pregunta1' value='2'>4-) no se 
+
+        <h5>¿Quién es el autor de la frase "Pienso, luego existo"?</h5>
+        <input class="m-2" type='radio' name='pregunta2' value='1' required>1-) Platon
+        <input class="m-2" type='radio' name='pregunta2' value='2'>2-) Galileo
+        <input class="m-2" type='radio' name='pregunta2' value='2'>3-) Descartes
+        <input class="m-2" type='radio' name='pregunta2' value='2'>4-) Socrates
+
+        <h5>¿Cuál es el país más grande y el más pequeño del mundo?</h5>
+        <input class="m-2" type='radio' name='pregunta3' value='1' required>1-) Rusia y Vaticano    
+        <input class="m-2" type='radio' name='pregunta3' value='2'>2-) China y Nauru
+        <input class="m-2" type='radio' name='pregunta3' value='2'>3-) Canada y Monaco
+        <input class="m-2" type='radio' name='pregunta3' value='2'>4-) Estados unidos y Malta
+
+        <h5>¿Quién pintó la bóveda de la capilla sixtina</h5>
+        <input class="m-2" type='radio' name='pregunta4' value='1' required>1-) Miguel Angel
+        <input class="m-2" type='radio' name='pregunta4' value='2'>2-) Da vinci
+        <input class="m-2" type='radio' name='pregunta4' value='2'>3-) Rafael
+        <input class="m-2" type='radio' name='pregunta4' value='2'>4-) Donatello
+
+    </div>
+
+
+</form>
+
+
+<div>
+    
+    <div class="d-inline-block">
+    <button class="btn btn-primary" type="submit" form="respuesta" id="btn_dos"
+        style="display: none;">Terminar</button>
+    </div>
+    <div class="d-inline-block">
+    <button class="btn btn-primary " type="button" id="btn_uno"
+        onclick="
+            if(
+                document.getElementById('nom').value !='' &&
+                document.getElementById('apa').value !='' &&
+                document.getElementById('ama').value !='' &&
+
+                document.getElementById('dia').value !='' &&
+                document.getElementById('mes').value !='' &&
+                document.getElementById('anio').value !=''
+                ){
+                    document.getElementById('uno').style.display = 'none';
+                    document.getElementById('btn_uno').style.display = 'none';
+                    document.getElementById('dos').style.display = 'block';
+                    document.getElementById('btn_dos').style.display = 'block';
+            }else{
+                alert('llene todos los campos')
+            }
+            "
+        
+        
+        >Siguiente</button>
+    </div>
+</br>
+    <button class="btn btn-primary d-inline-block" onclick="
+        document.getElementById('respuesta').reset();
+        document.getElementById('uno').style.display = 'block';
+        document.getElementById('btn_uno').style.display = 'block';
+        document.getElementById('dos').style.display = 'none';
+        document.getElementById('btn_dos').style.display = 'none';
+        ">Borrar</button>
+</div>
+</body>
+
+</html>
