@@ -2,7 +2,6 @@ class Calculadora:
     
     def get_Array(form) -> list:
         numeros = []
-    
         for num in form:
             numeros.append(int(form.get(num)))
         
