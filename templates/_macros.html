@@ -1,19 +1,37 @@
-{%macro render_input(name, placeholder, type="text")%}
+
+{% macro render_input(name,placeholder,type='text') %}
+
 <div class="control-group">
-    <label for="{{name}}" class="control-label">{{placeholder}} </label>
-    <div class="controls">
-      <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" value="">
+    <label for="{{name}}" class="control-label">{{placeholder}}</label>
+    <div class="control">
+        <input type="{{text}}" name="{{name}}" class="input-xlarge" placeholder="{{placeholder}}">
     </div>
 </div>
+
 {%endmacro%}
 
-{%macro render_field(field)%}
+
+{% macro render_Firld(field) %}
+
 <div class="control-group">
-  <div class="controls">
-    {{field.label}}
-    {{field(**kwargs)|safe}}
-  </div>
+    <div class="controls">
+        {{field.label}}
+        {{field(**kwargs)|safe}}
+    </div>
 </div>
+
+{%if field.errors%}
+
+<ul>
+    {%for error in field.errors%}
+    <li style="color:red">
+        {{ error }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
 {%endmacro%}
 
 {%macro render_cajas(numero)%}
@@ -32,3 +50,25 @@
   <p>El número {{repeat[0]}} se repitió {{repeat[1]}} veces. </p>
   {%endif%}
 {%endmacro%}
+
+{% macro render_t(field) %}
+    <div class="control-group">
+        <div class="controls">
+            {{field.label}}        
+            {{field(**kwargs)|safe}}
+        </div>
+    </div>
+    {% if field.errors %}
+        <ul>
+            {% for error in field.errors %}
+                <li style="color:red">
+                    {{error}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+
+
+
